@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 
 
 def index(request):
@@ -11,10 +11,15 @@ def about(request):
 
 
 def contact(request):
-    return HttpResponse("<h2>Контакты</h2>")
+    # return HttpResponse("<h2>Контакты</h2>")
+    return HttpResponseRedirect("/about")
 
 
-def products(request, productid = 1):
+def details(request):
+    return HttpResponsePermanentRedirect("/")
+
+
+def products(request, productid=1):
     output = "<h2>Product # {}</h2".format(productid)
     return HttpResponse(output)
 
