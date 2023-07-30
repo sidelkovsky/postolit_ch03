@@ -3,7 +3,17 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanen
 
 
 def index(request):
-    return render(request, "firstapp/home.html")
+    header = "Personal Data"
+    langs = ["English", "German", "Spanish"]
+    user = {"name": "Valera", "age": 56}
+    addr = ("Lenin Avenue", 123, 345)
+    data = {
+        "header": header,
+        "langs": langs,
+        "user": user,
+        "address": addr,
+    }
+    return render(request, "firstapp/index_app1.html", context=data)
 
 
 def about(request):
