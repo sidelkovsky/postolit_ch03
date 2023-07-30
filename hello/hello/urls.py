@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
 from firstapp import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.index, name='home'),
     path('admin/', admin.site.urls),
-    re_path(r'^about', views.about),
-    re_path(r'^contact', views.contact),
+    re_path(r'^about', TemplateView.as_view(template_name='firstapp/about.html')),
+    re_path(r'^contact', TemplateView.as_view(template_name='firstapp/contacts.html',
+                                              extra_context={
+                                                  "work": "Software Development",
+                                              })),
     # re_path(r'^products/$', views.products),
     # re_path(r'^products/(?P<productid>\d+)/', views.products),
     # re_path(r'^users/(?P<id>\d+)/(?P<name>\D+)/', views.users),
