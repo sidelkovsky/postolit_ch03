@@ -13,7 +13,8 @@ def index(request):
         "user": user,
         "address": addr,
     }
-    return render(request, "firstapp/index_app1.html", context=data)
+    # return render(request, "firstapp/index_app1.html", context=data)
+    return render(request, "firstapp/home.html")
 
 
 def about(request):
