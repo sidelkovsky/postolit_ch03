@@ -3,8 +3,12 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanen
 
 
 def index(request):
+    data = {
+        "age": 66,
+        "cat": ["Notebooks", "Scanners", "Disks", "Cords"]
+    }
 
-    return render(request, "firstapp/index.html")
+    return render(request, "firstapp/index.html", context=data)
 
     # header = "Personal Data"
     # langs = ["English", "German", "Spanish"]

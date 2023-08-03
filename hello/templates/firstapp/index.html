@@ -1,4 +1,39 @@
 {% extends "firstapp/base.html" %}
 {% block title %}Index Page{% endblock title %}
 {% block header %}Main page{% endblock header %}
-{% block content %} Extending master template base.html with index.html{% endblock content %}
+{% block content %}
+
+<p>Extending master template base.html with index.html</p>
+
+
+<hr>
+
+<p>Анализ возраста клиента</p>
+
+{% if age > 65 %}
+<p>Клиент достиг пенсионного возсраста</p>
+{% else %}
+<p>Клиент не является пенсионером</p>
+{% endif %}
+
+<hr>
+
+<p><b>Product categories</b></p>
+
+{% for i in cat %}
+    <li>{{ i }}</li>
+{% empty %}
+    <p>Nothing found</p>
+{% endfor %}
+
+<hr>
+
+{% with name="kall"  num=56 %}
+
+    <h2>{{ name }} {{ num }} </h2>
+
+{% endwith %}
+
+<hr>
+
+{% endblock content %}
